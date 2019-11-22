@@ -14,7 +14,7 @@
 <div class="tab-content">
 		<div id="home" class="tab-pane fade in active">
 			<h3>Home</h3>
-			<p>aaaaaaaaaaa........</p>
+			<p>안녕하세요.</p>
 		</div>
 		<iframe width="420" height=315 
 			src="https://www.youtube.com/embed/tgbNymZ7vqY">

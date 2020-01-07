@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.model.mapper.FoodMapper">
+
+	<select id="list" resultType="FoodDTO">
+		select food_id, food_title, food_content, food_img, food_star
+		from food
+		order by food_id
+	</select>
+	
+	<insert id="create" parameterType="FoodDTO">
+		insert into food(food_id, food_title, food_content, food_img, food_star)
+		values((select nvl(max(food_id),0)+1 from food), 
+		#{food_title}, #{food_content}, #{food_img , jdbcType=VARCHAR}, #{food_star})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from food
+		where food_id = #{food_id}
+	</delete>
+	
+	
+</mapper>

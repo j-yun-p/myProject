@@ -39,7 +39,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 <div class="w3-top">
   <div class="w3-white w3-xlarge" style="max-width:1700px;margin:auto">
     <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16">login</div>
+    <div class="w3-right w3-padding-16" onclick="create()" style="cursor:pointer">join &nbsp;</div>
+    <div class="w3-right w3-padding-16" onclick="login()" style="cursor:pointer">login &nbsp;</div>
     <div class="w3-center w3-padding-16" style="font-size: 40px;">My Food</div>	
   </div>
 </div>
@@ -49,6 +50,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 
 <script>
 // Script to open and close sidebar
+function create(){
+	var url = "member/create";
+	location.href = url;
+}
+
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
 }

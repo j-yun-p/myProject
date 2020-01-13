@@ -51,7 +51,7 @@
 	<!-- filedown -->
 	<servlet>
 		<servlet-name>filedown</servlet-name>
-		<servlet-class>spring.utility.shopping.FileDownload</servlet-class>
+		<servlet-class>spring.utility.food.FileDownload</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>filedown</servlet-name>

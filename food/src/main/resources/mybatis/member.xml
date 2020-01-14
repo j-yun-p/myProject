@@ -9,7 +9,64 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{id}, #{passwd}, #{name}, #{tel}, #{email}, #{zipcode}, 
         #{address1}, #{address2}, sysdate, 'H')
 	</insert>
-
+	
+	<select id="read" parameterType="String" resultType="MemberDTO">
+			select id, passwd, name, tel, email, zipcode, address1, address2, fdate, grade
+			from food_member
+			where id = #{id}
+	</select>
+	
+	<update id="update" parameterType="MemberDTO">
+			update food_member
+			set tel= #{tel}, email=#{email}, zipcode=#{zipcode}, address1=#{address1},address2=#{address2}
+			where id = #{id}
+	</update>
+	
+	<update id="updatePw" parameterType="Map">
+			update food_member
+			set passwd = #{passwd}
+			where id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+			delete from food_member
+			where id = #{id}
+		</delete>
+	
+	<select id="duplicateEmail" parameterType="String" resultType="int">
+		SELECT COUNT(email) as cnt
+		FROM food_member
+		WHERE email=#{email}
+	</select>
+		
+	<select id="duplicateId" parameterType="String" resultType="int">
+		SELECT COUNT(id) as cnt
+		FROM food_member
+		WHERE id=#{id}
+	</select>
+	
+	<select id="loginCheck" parameterType="Map" resultType="int">
+		select count(id) as cnt
+		from food_member
+		where id=#{id} and passwd=#{passwd}
+	</select>
+	
+	<select id="getGrade" parameterType="String" resultType="String">
+		select grade from food_member
+		where id = #{id}
+	</select>
+	
+	<select id="findId" parameterType="Map" resultType="String">
+		select id
+		from food_member
+		where name=#{name} and email=#{email}
+	</select>
+		
+	<select id="findPw" parameterType="Map" resultType="String">
+		select passwd
+		from food_member
+		where name=#{name} and id=#{id}
+	</select>
 
 
 </mapper>

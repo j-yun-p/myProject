@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>회원가입</title>
+<title>회원정보수정</title>
 <meta charset="utf-8">
 <style type="text/css">
 #need {
@@ -11,38 +11,17 @@
 }
 </style>
 <script type="text/javascript">
-	function idCheck(id){
-		alert(id);
-		if(id==''){
-			alert("아이디를 입력하세요");
-			document.frm.id.focus();
-		}else{
-			var url="idcheck";
-			var param = "id="+id;
-			
-			$.get(url, param, function(data, textStatus) {
-				$("#idcheck").text(data.str);
 
-			})
-		} 
-	}
-
-	function emailCheck(email){
-		if(email==''){
-			alert("이메일을 입력하세요");
-			document.frm.email.focus();
-		}else{
-			var url="emailcheck";
-			var param = "email="+email;
-			
-			$.get(url, param, function(data, textStatus){
-				$("#emailcheck").text(data.str);
-			})
-		}	
+	function emailCheck(){
+	
+			var url="email_form";
+						
+			var wr = window.open(url, "Email 중복확인", "width=500, height=400");
+			wr.moveTo((widow.screen.width-500)/2,(window.screen.width-400)/2);
+		
 	}
 
 </script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script> 
     function sample6_execDaumPostcode() {
@@ -95,33 +74,7 @@
 </script>
 <script type="text/javascript">
 function inCheck(f){
-	if(f.id.value.length==0){
-		alert("아이디를 입력하세요");
-		f.id.focus();
-		return false;
-	}
-	if(f.passwd.value.length==0){
-		alert("비번을 입력하세요");
-		f.passwd.focus();
-		return false;
-	}
-	if(f.repasswd.value.length==0){
-		alert("비번확인을 입력하세요");
-		f.repasswd.focus();
-		return false;
-	}
-	if(f.passwd.value != f.repasswd.value){
-		alert("비번과 비번확인이 일치하지 않습니다.");
-		f.passwd.value="";
-		f.repasswd.value="";
-		f.passwd.focus();
-		return false;
-	}
-	if(f.mname.value.length==0){
-		alert("이름을 입력하세요");
-		f.mname.focus();
-		return false;
-	}
+
 	if(f.tel.value.length==0){
 		alert("전화번호를 입력하세요");
 		f.tel.focus();
@@ -135,72 +88,46 @@ function inCheck(f){
 
 }
 
+function emailMsg(){
+	alert("이메일 변경을 원하시면 Email변경 버튼을 클릭하세요");
+	
+}
+
 </script>
-<style type="text/css">
-	#idcheck, #emailcheck{
-		color : red;
-	}
-	.form-group{
-	margin: 15px;
-	}
-</style>
+
 </head>
 <body>
-
+	
 	<div class="w3-main w3-content w3-padding"
-		style="max-width: 1700px; margin-top: 200px; margin-left: 700px;" >
-		<h2 class="col-sm-offset-2 col-sm-10">회원가입</h2>
+		style="max-width: 1300px; margin-top: 100px; " >
+		<h2 class="col-sm-offset-2 col-sm-10">회원정보수정</h2>
 		<label class="col-sm-offset-2 col-sm-10">(<span id="need">*</span>
-		필수입력사항)</label>
-
+			필수입력사항)
+		</label>
 		<form class="form-horizontal" 
-			  action="createProc" 
-		 	  method="post"
-			  name='frm'
-			  onsubmit="return inCheck(this)">
-
+			action="update" 
+			method="post"
+			name='frm' 
+			onsubmit="return inCheck(this)">
 			
+			<input type="hidden" name="id" value="${dto.id}">
+
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="id"><span
-					id="need">*</span>아이디</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" id="id"
-						placeholder="Enter id" name="id">
-					<button type="button" class="btn btn-default col-sm-2"
-						onclick="idCheck(document.frm.id.value)">ID 중복확인</button>
-				</div>
-					<div id="idcheck"></div>
+				<label class="control-label col-sm-2" for="id">아이디</label>
+				<div class="col-sm-3">${dto.id}</div>
 			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="passwd"><span
-					id="need">*</span>비밀번호</label>
-				<div class="col-sm-4">
-					<input type="password" class="form-control" id="passwd"
-						placeholder="Enter password" name="passwd">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="repasswd"><span
-					id="need">*</span>비밀번호 확인</label>
-				<div class="col-sm-4">
-					<input type="password" class="form-control" id="repasswd"
-						placeholder="Enter password" name="repasswd">
-				</div>
-			</div>
+
+
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name"><span
 					id="need">*</span>이름</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="name"
-						placeholder="Enter name" name="name">
-				</div>
+				<div class="col-sm-4">${dto.name}</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="tel"><span
-					id="need">*</span>전화번호</label>
+				<label class="control-label col-sm-2" for="tel">전화번호</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" id="tel"
-						placeholder="Enter tel" name="tel">
+						value="${dto.tel}" name="tel">
 				</div>
 			</div>
 			<div class="form-group">
@@ -208,33 +135,35 @@ function inCheck(f){
 					id="need">*</span>이메일</label>
 				<div class="col-sm-3">
 					<input type="email" class="form-control" id="email"
-						placeholder="Enter email" name="email">
-					<button type="button" class="btn btn-default col-sm-2"
-						onclick="emailCheck(document.frm.email.value)">Email 중복확인</button>
+						value="${dto.email}" readonly name="email" onclick="emailMsg()">
 				</div>
-					<div id="emailcheck"></div>
+				<button type="button" class="btn btn-default col-sm-2"
+					onclick="emailCheck()">Email 변경</button>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="sample6_postcode">우편번호</label>
 				<div class="col-sm-1">
-					<input type="text" class="form-control" id="sample6_postcode" placeholder="우편번호"
-					name="zipcode">
-					<button type="button" class="btn btn-default col-sm-2" onclick="sample6_execDaumPostcode()">주소검색</button>
+					<input type="text" class="form-control" id="sample6_postcode"
+						value="${dto.zipcode}" name="zipcode">
 				</div>
+				<button type="button" class="btn btn-default col-sm-2"
+					onclick="sample6_execDaumPostcode()">주소검색</button>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="sample6_address">주소</label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" id="sample6_address" placeholder="주소" name="address1">
-					<input type="text" class="form-control" id="sample6_detailAddress" placeholder="상세주소" name="address2">
+					<input type="text" class="form-control" id="sample6_address"
+						value="${dto.address1}" name="address1"> <input type="text"
+						class="form-control" id="sample6_detailAddress" value="${dto.address2}"
+						name="address2">
 				</div>
 			</div>
 
-
+		
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-5">
-					<button type="submit" class="btn btn-default">등록</button>
-					<button type="reset" class="btn btn-default">취소</button>
+					<button type="submit" class="btn btn-default">수정</button>
+					<button type="reset" class="btn btn-default" onclick="history.back()">취소</button>
 				</div>
 			</div>
 

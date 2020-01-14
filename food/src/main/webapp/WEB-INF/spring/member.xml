@@ -4,10 +4,57 @@
     "http://tiles.apache.org/dtds/tiles-config_2_0.dtd"> 
 <tiles-definitions> 
 	
+	
+    
+	<definition name="/login" extends="main"> 
+        <put-attribute name="title" value="로그인"/> 
+        <put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" /> 
+    </definition>
+    
+	<definition name="/agree" extends="main"> 
+        <put-attribute name="title" value="회원약관"/> 
+        <put-attribute name="body" value="/WEB-INF/views/member/agreement.jsp" /> 
+    </definition>
 
 	<definition name="/member/create" extends="main"> 
         <put-attribute name="title" value="회원가입"/> 
         <put-attribute name="body" value="/WEB-INF/views/member/create.jsp" /> 
     </definition>
+    
+    <definition name="/read" extends="main">
+		<put-attribute name="title"
+			value="회원 정보"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/read.jsp" />
+	</definition>
+    
+    <definition name="/update" extends="main">
+		<put-attribute name="title"
+			value="회원정보수정"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/updateForm.jsp" />
+	</definition>
+	
+	<definition name="/updatePw" extends="main">
+		<put-attribute name="title"
+			value="비밀번호 변경"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/updatePwForm.jsp" />
+	</definition>
+    
+    <definition name="/delete" extends="main">
+		<put-attribute name="title"
+			value="회원탈퇴"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/deleteForm.jsp" />
+	</definition>
+	
+    
+    <definition name="/preProc" extends="main">
+		<put-attribute name="title"
+			value="id 및 email 중복확인"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/preProc.jsp" />
+	</definition>
 
 </tiles-definitions>

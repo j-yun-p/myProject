@@ -17,7 +17,7 @@
 			var url="email_form";
 						
 			var wr = window.open(url, "Email 중복확인", "width=500, height=400");
-			wr.moveTo((widow.screen.width-500)/2,(window.screen.width-400)/2);
+			wr.moveTo((widow.screen.width-500)/2,(window.screen.height-400)/2);
 		
 	}
 
@@ -92,16 +92,40 @@ function emailMsg(){
 	alert("이메일 변경을 원하시면 Email변경 버튼을 클릭하세요");
 	
 }
+function noupdate(){
+	alert("수정할 수 없습니다.");
+}
 
 </script>
+<style type="text/css">
+ input[type=text], input[type=password], input[type=email] {
+		  width: 50%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  box-sizing: border-box;
+	}
+	button {
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 10px;
+		  border: none;
+		  cursor: pointer;
+		  width: 10%;
+	}
 
+	button:hover {
+		  opacity: 0.8;
+	}
+</style>
 </head>
 <body>
 	
 	<div class="w3-main w3-content w3-padding"
-		style="max-width: 1300px; margin-top: 100px; " >
-		<h2 class="col-sm-offset-2 col-sm-10">회원정보수정</h2>
-		<label class="col-sm-offset-2 col-sm-10">(<span id="need">*</span>
+		style="max-width: 1300px; margin-top: 200px; margin-left: 800px; " >
+		<label class="col-sm-offset-2 col-sm-10" style="margin: 10px;">(<span id="need">*</span>
 			필수입력사항)
 		</label>
 		<form class="form-horizontal" 
@@ -114,14 +138,20 @@ function emailMsg(){
 
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="id">아이디</label>
-				<div class="col-sm-3">${dto.id}</div>
+				<div class="col-sm-4">
+				<input type="text" class="form-control" id="tel"
+						value="${dto.id}" name="tel">
+				</div>
 			</div>
 
 
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="name"><span
 					id="need">*</span>이름</label>
-				<div class="col-sm-4">${dto.name}</div>
+				<div class="col-sm-4">
+					<input type="text" class="form-control" id="tel"
+						value="${dto.name}" name="tel">
+				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="tel">전화번호</label>
@@ -136,18 +166,18 @@ function emailMsg(){
 				<div class="col-sm-3">
 					<input type="email" class="form-control" id="email"
 						value="${dto.email}" readonly name="email" onclick="emailMsg()">
-				</div>
 				<button type="button" class="btn btn-default col-sm-2"
 					onclick="emailCheck()">Email 변경</button>
+				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="sample6_postcode">우편번호</label>
 				<div class="col-sm-1">
 					<input type="text" class="form-control" id="sample6_postcode"
 						value="${dto.zipcode}" name="zipcode">
-				</div>
 				<button type="button" class="btn btn-default col-sm-2"
 					onclick="sample6_execDaumPostcode()">주소검색</button>
+				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="sample6_address">주소</label>
@@ -161,7 +191,7 @@ function emailMsg(){
 
 		
 			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-5">
+				<div class="col-sm-offset-2 col-sm-5" style="margin-left:20%; ">
 					<button type="submit" class="btn btn-default">수정</button>
 					<button type="reset" class="btn btn-default" onclick="history.back()">취소</button>
 				</div>

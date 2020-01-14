@@ -27,12 +27,34 @@
   		
   	}
   </script>
-  
+  <style type="text/css">
+   input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+  </style>
  </head>
 <body>
 
 <div class="w3-main w3-content w3-padding"
-		style="max-width: 1300px; margin-top: 200px; text-align: center;">
+		style="max-width: 1000px; margin-top: 200px; ">
  
   <form class="form-horizontal" 
   		action="updatePw"
@@ -53,7 +75,7 @@
     </div>
    
     <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-8" style="margin-top: 20px;">
+      <div class="col-sm-offset-2 col-sm-8" style="margin-top: 30px;">
         <button type="submit" class="btn btn-default" >변경</button>
         <button type="button" class="btn btn-default" onclick="history.back()">취소</button>
       </div>

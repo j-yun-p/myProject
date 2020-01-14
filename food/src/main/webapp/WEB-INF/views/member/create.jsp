@@ -12,7 +12,6 @@
 </style>
 <script type="text/javascript">
 	function idCheck(id){
-		alert(id);
 		if(id==''){
 			alert("아이디를 입력하세요");
 			document.frm.id.focus();
@@ -141,16 +140,38 @@ function inCheck(f){
 		color : red;
 	}
 	.form-group{
-	margin: 15px;
+		margin: 15px;
 	}
+	 input[type=text], input[type=password], input[type=email] {
+		  width: 50%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  box-sizing: border-box;
+	}
+	button {
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 10px;
+		  border: none;
+		  cursor: pointer;
+		  width: 10%;
+	}
+
+	button:hover {
+		  opacity: 0.8;
+	}
+	
+	
 </style>
 </head>
 <body>
 
 	<div class="w3-main w3-content w3-padding"
-		style="max-width: 1700px; margin-top: 200px; margin-left: 700px;" >
-		<h2 class="col-sm-offset-2 col-sm-10">회원가입</h2>
-		<label class="col-sm-offset-2 col-sm-10">(<span id="need">*</span>
+		style="max-width: 1700px; margin-top: 200px; margin-left: 600px;" >
+		<label style="align: right;">(<span id="need">*</span>
 		필수입력사항)</label>
 
 		<form class="form-horizontal" 
@@ -231,7 +252,7 @@ function inCheck(f){
 			</div>
 
 
-			<div class="form-group">
+			<div class="form-group" style="margin-left: 25%; ">
 				<div class="col-sm-offset-2 col-sm-5">
 					<button type="submit" class="btn btn-default">등록</button>
 					<button type="reset" class="btn btn-default">취소</button>

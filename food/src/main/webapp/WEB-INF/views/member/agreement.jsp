@@ -16,13 +16,24 @@
   }
   
   </script>
+  <style type="text/css">
+  .btn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 20;
+
+  }
+  </style>
   
 </head>
 <body> 
 
 <div class="w3-main w3-content w3-padding"
 		style="max-width: 1500px; margin-top: 100px" >
-<h2 class="col-sm-offset-1 col-sm-11" style="margin: 20px;">약관동의</h2>
 <form class="form-horizontal" 
       action="create"
       method="post"
@@ -34,7 +45,7 @@
   <div class="form-group">
     <label class="control-label col-sm-1" for="content"></label>
     <div class="col-sm-8">
-    <textarea rows="40" cols="220" id="content" name="content" class="form-control">Cummunity 서비스약관 (2005. 7. 18 부터 유효) 
+    <textarea rows="50" cols="200" id="content" name="content" class="form-control">Cummunity 서비스약관 (2005. 7. 18 부터 유효) 
  
 제1조(목적 등) 
  
@@ -219,9 +230,10 @@
    <div class="form-group">
 	   <div class="col-sm-offset-2 col-sm-5" style="text-align: right; margin: 10px;">
 		    <input id="agree" type="checkbox" name="agree" value="1" ><label for="agree"> 약관에 동의합니다 </label>
-		    
-		    <button class="btn">회원가입</button>
-		    <button type="button" class="btn" onclick="history.back()">취소</button>
+		    <div>
+		    	<button class="btn" style="background-color: ffffff;">회원가입</button>
+		    	<button type="button" class="btn" onclick="history.back()">취소</button>
+		    </div>
 	   </div>
  </div>
 </form>

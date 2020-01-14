@@ -29,12 +29,26 @@
 
   
   </script>
-  
+  <style type="text/css">
+  	button {
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  cursor: pointer;
+		  width: 20;
+	}
+
+	button:hover {
+		  opacity: 0.8;
+	}
+  </style>
  </head>
 <body>
 
 <div class="w3-main w3-content w3-padding"
-		style="max-width: 1500px; margin-top: 150px"  align="center">
+		style="max-width: 1500px; margin-top: 250px"  align="center">
   
   <table class="table table-bordered">
 
@@ -68,16 +82,16 @@
   	</tr> 	
   </table>
   
-  <div style="text-align: center; margin: 20px;" >
-  <c:if test="${not empty sessionScope.id && sessionScope.grade != 'A'}">
-  	 <button class="btn btn-default" onclick="updateM()">정보수정</button>
-  	 <button class="btn btn-default" onclick="updatePw()">비번변경</button>
-   </c:if>
-  <button class="btn btn-default" onclick="deleteM()">회원탈퇴</button>
-  
-  <c:if test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
-	  <button class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/list'">회원목록</button>
-  </c:if>
+  <div style="text-align: center; margin: 30px;" >
+	  <c:if test="${not empty sessionScope.id && sessionScope.grade != 'A'}">
+	  	 <button class="btn btn-default" onclick="updateM()">정보수정</button>
+	  	 <button class="btn btn-default" onclick="updatePw()">비번변경</button>
+	   </c:if>
+	  <button class="btn btn-default" onclick="deleteM()">회원탈퇴</button>
+	  
+	  <c:if test="${not empty sessionScope.id && sessionScope.grade == 'A'}">
+		  <button class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/list'">회원목록</button>
+	  </c:if>
   
   </div>
   
